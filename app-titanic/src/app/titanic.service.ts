@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { TITANIC, Titanic } from './Data/titanic';
+import { TITANIC, Titanic, Status } from './Data/titanic';
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +19,12 @@ export class TitanicService {
 
   // O ou 1 
   survived(status: string): Titanic[] {
+    if (status == '') return [];
+    console.log(status);
+    const s: string = status == 'survived' ? "1" : "0";
+    console.log(s);
 
-    return this.titanics.filter(t => t.Survived == status);
+    return this.titanics.filter(t => t.Survived == s);
   }
 
 }

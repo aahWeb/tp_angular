@@ -1,0 +1,16 @@
+<h2>Titanic</h2>
+<ul class="titanics">
+  <li *ngFor="let titanic of titanics">
+    <button [class.selected]="titanic === selectedTitanic" type="button" (click)="onSelect(titanic)">
+      <span class="name">{{titanic.Name}}</span>
+    </button>
+    <div *ngIf="selectedTitanic && titanic === selectedTitanic">
+      <h2>{{selectedTitanic.Name | uppercase}} Details</h2>
+      <div>id: {{selectedTitanic.PassengerId}}</div>
+      <div>
+       <p>Moyenne :</p>
+       <p>Survived : {{ titanic.Survived }}</p>
+      </div>
+    </div>
+  </li>
+</ul>

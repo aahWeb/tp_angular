@@ -1,5 +1,5 @@
 
-export interface Titanic {
+export class Titanic {
     "PassengerId": string;
     "Survived": string;
     "Pclass": string;
@@ -13,6 +13,17 @@ export interface Titanic {
     "Cabin": string;
     "Embarked": string;
 }
+
+export enum Status {
+    Survived = '1',
+    Dead = '0',
+    Undetermined = 'undetermined'
+  }
+  
+  export class Search {
+    constructor(public status : Status, public result?: boolean){
+    }
+  }
 
  export const TITANIC : Titanic[]  = [
     {

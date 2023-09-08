@@ -1,0 +1,22 @@
+<form *ngIf="search.result == false; else elseBlock" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="status">Status</label>
+        <select class="form-control" id="status" required [(ngModel)]="search.status" name="status">
+            <option *ngFor="let s of ['undetermined','survived', 'dead']" [value]="s">{{s}}</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<ng-template #elseBlock>
+    <p>Refaire une recherche
+        <button (click)="newSearch()">Go</button>
+    </p>
+    <ul class="titanics">
+        <li *ngFor="let titanic of titanics">
+            <p>Status {{ titanic.Survived }}</p>
+            <p> {{ titanic.Name }}</p>
+        </li>
+    </ul>
+
+</ng-template>
